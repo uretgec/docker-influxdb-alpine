@@ -19,9 +19,15 @@ RUN apk add --no-cache --virtual .build-deps wget gnupg tar ca-certificates && \
     
 COPY influxdb.conf /etc/influxdb/influxdb.conf
 
-EXPOSE 8083 8086
-
+# Volume
 VOLUME ["/var/lib/influxdb"]
+VOLUME ["/var/log/influxdb"]
+
+RUN mkdir -p /var/backups/influxdb
+RUN chmod a+r /var/backups/influxdb/
+VOLUME ["/var/backups/influxdb"]
+
+EXPOSE 8083 8086
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
