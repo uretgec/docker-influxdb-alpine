@@ -23,6 +23,6 @@ EXPOSE 8083 8086
 
 VOLUME ["/var/lib/influxdb"]
 
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["influxd"]
