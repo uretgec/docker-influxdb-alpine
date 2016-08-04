@@ -3,7 +3,7 @@ Influxdb Alpine Docker File
 
 # Usage
 ```
-$ docker run -p 8083:8083 -p 8086:8086 -v <docker_volume_name>:/var/lib/influxdb uretgec/influxdb-alpine
+$ docker run -p 8083:8083 -p 8086:8086 -v <docker_volume_name>:/var/lib/influxdb -v <docker_volume_name>:/var/log/influxdb -v <docker_volume_name>:/var/backups/influxdb uretgec/influxdb-alpine
 ```
 
 # Options
